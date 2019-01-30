@@ -14,7 +14,7 @@ server.use(bodyParser.json());
 
 server.post('/get-customer-data', (req, res) => {
 
-  const dataToGet = req.body.result && req.body.result.parameters && req.body.result.parameters.energy ? req.body.result.parameters.energy : 'Error';
+  const dataToGet = req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.energy ? req.body.queryResult.parameters.energy : 'Error';
   const reqUrl = `https://api-kth.azurewebsites.net/api/${dataToGet}?id=00002&code=${API_KEY}`;
   https.get(reqUrl, (responseFromAPI) => {
     let completeResponse = '';
