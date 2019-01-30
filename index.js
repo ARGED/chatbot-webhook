@@ -34,7 +34,8 @@ server.post('/get-customer-data', (req, res) => {
               items: [
                 {
                   simpleResponse: {
-                    textToSpeech: dataToSend
+                    textToSpeech: dataToSend,
+                    displayText: dataToSend
                   }
                 }
               ]
