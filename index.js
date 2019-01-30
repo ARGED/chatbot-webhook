@@ -27,16 +27,38 @@ server.post('/get-customer-data', (req, res) => {
       dataToSend += `${customer.Id} is a(n) ${customer.BuildingType} and the contract ends in ${customer.ContractEndsUtc}`;
 
       return res.json({
-        speech: dataToSend,
-        displayText: dataToSend,
-        source: 'get-customer-data'
+        payload: {
+          google: {
+            expectedUserResponse: true,
+            richResponse: {
+              items: [
+                {
+                  simpleResponse: {
+                    textToSpeech: dataToSend
+                  }
+                }
+              ]
+            }
+          }
+        }
       });
     });
   }, (error) => {
     return res.json({
-      speech: 'Something went wrong!',
-      displayText: 'Something went wrong!',
-      source: 'get-customer-data'
+      payload: {
+        google: {
+          expectedUserResponse: true,
+          richResponse: {
+            items: [
+              {
+                simpleResponse: {
+                  textToSpeech: "something went wrong!"
+                }
+              }
+            ]
+          }
+        }
+      }
     });
   });
 });
