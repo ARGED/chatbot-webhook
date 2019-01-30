@@ -1,0 +1,8 @@
+{
+  "name": "vf-prototype-webhook",
+  "description": "An API that exposes mock customer data from vattenfall that is used by Dialogflow",
+  "repository": "https://github.com/ARGED/chatbot-webhook",
+  "keywords": [
+    "Dialogflow"
+  ]
+}
